@@ -42,7 +42,7 @@ namespace Alice.Images
 		public async Task<UploadedImage> TryUploadImageFromFileAsync(string filename)
 		{
 			var imageBytes = File.ReadAllBytes(filename);
-			HttpContent content = new ByteArrayContent(imageBytes);
+			var content = new ByteArrayContent(imageBytes);
 			content.Headers.Add("Content-Type", "multipart/form-data");
 
 			return await TryUploadImage(content);
