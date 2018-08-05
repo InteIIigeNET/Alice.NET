@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using Alice.Models.Common;
+using Newtonsoft.Json;
 
-namespace Alice.Models
+namespace Alice.Models.Responses
 {
 	/// <summary>
 	/// Ответ на AliceRequest

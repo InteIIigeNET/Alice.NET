@@ -1,17 +1,20 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Alice.Models
+namespace Alice.Models.Requests
 {
+	/// <summary>
+	/// Тип ввода
+	/// </summary>
 	public enum RequestType
 	{
 		/// <summary>
-		/// голосовой ввод
+		/// Голосовой ввод
 		/// </summary>
 		SimpleUtterance,
 
 		/// <summary>
-		/// нажатие кнопки
+		/// Нажатие кнопки
 		/// </summary>
 		ButtonPressed
 	}
@@ -38,6 +41,14 @@ namespace Alice.Models
 		/// </summary>
 		[JsonProperty("type")]
 		public RequestType Type { get; set; }
+
+		/// <summary>
+		/// Формальные характеристики реплики, 
+		/// которые удалось выделить Яндекс.Диалогам.
+		/// Отсутствует, если ни одно из вложенных свойств не применимо
+		/// </summary>
+		[JsonProperty("markup")]
+		public Markup Markup { get; set; }
 
 		/// <summary>
 		/// JSON, полученный с нажатой кнопкой от обработчика навыка (в ответе на предыдущий запрос), 

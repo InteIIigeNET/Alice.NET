@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Alice.Models
+namespace Alice.Models.Requests
 {
 	/// <summary>
 	/// Информация об устройстве, с помощью которого пользователь разговаривает с Алисой

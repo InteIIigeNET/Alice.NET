@@ -1,6 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using Alice.Models.Buttons;
+using Alice.Models.Cards;
+using Newtonsoft.Json;
 
-namespace Alice.Models
+namespace Alice.Models.Responses
 {
 	/// <summary>
 	/// Данные для ответа пользователю
@@ -26,12 +28,22 @@ namespace Alice.Models
 		[JsonProperty("tts")]
 		public string Tts { get; set; }
 
+		/// <summary>
+		/// Описание карточки — сообщения с поддержкой изображений.
+		/// Если приложению удается отобразить карточку для пользователя, 
+		/// свойство response.text не используется
+		/// </summary>
+		[JsonProperty("card")]
+		public Card Card { get; set; }
+
+		///<summary>
 		/// Кнопки, которые следует показать пользователю.
 		/// Все указанные кнопки выводятся после основного ответа Алисы, 
 		/// описанного в свойствах response.text и response.card.
 		/// Кнопки можно использовать как релевантные ответу ссылки или подсказки для продолжения разговора
+		///</summary>
 		[JsonProperty("buttons")]
-		public Button[] Buttons { get; set; }
+		public TipButton[] Buttons { get; set; }
 
 		/// <summary>
 		/// Признак конца разговора:
@@ -40,6 +52,5 @@ namespace Alice.Models
 		/// </summary>
 		[JsonProperty("end_session")]
 		public bool EndSession { get; set; }
-
 	}
 }

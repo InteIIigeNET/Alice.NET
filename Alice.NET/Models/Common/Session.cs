@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Alice.Models
+namespace Alice.Models.Common
 {
 	/// <summary>
 	/// Данные о сессии

@@ -44,18 +44,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AliceServiceConstants.cs" />
-    <Compile Include="Extensions\AliceExtensions.cs" />
-    <Compile Include="Models\Meta.cs" />
-    <Compile Include="Models\AliceResponse.cs" />
-    <Compile Include="Models\Button.cs" />
-    <Compile Include="Models\AliceRequest.cs" />
-    <Compile Include="Models\Request.cs" />
-    <Compile Include="Models\Response.cs" />
-    <Compile Include="Models\Session.cs" />
+    <Compile Include="JsonSerializer\IJsonSerializer.cs" />
+    <Compile Include="JsonSerializer\JsonSerializer.cs" />
+    <Compile Include="Models\Builders\Buttons\TipButtonBuilder.cs" />
+    <Compile Include="Models\Builders\Cards\BigImageCardBuilder.cs" />
+    <Compile Include="Models\Builders\Cards\CardItemBuilder.cs" />
+    <Compile Include="Models\Builders\Cards\FooterBuilder.cs" />
+    <Compile Include="Models\Builders\Cards\HeaderBuilder.cs" />
+    <Compile Include="Models\Builders\Cards\ItemsListCardBuilder.cs" />
+    <Compile Include="Models\Cards\BigImageCard.cs" />
+    <Compile Include="Models\Builders\Buttons\ButtonBuilder.cs" />
+    <Compile Include="Models\Cards\Card.cs" />
+    <Compile Include="Models\Builders\Cards\CardBuilder.cs" />
+    <Compile Include="Models\Cards\Footer.cs" />
+    <Compile Include="Models\Cards\Header.cs" />
+    <Compile Include="Models\Buttons\TipButton.cs" />
+    <Compile Include="Models\Cards\CardItem.cs" />
+    <Compile Include="Models\Cards\ItemsListCard.cs" />
+    <Compile Include="Models\Requests\Markup.cs" />
+    <Compile Include="Models\Requests\Meta.cs" />
+    <Compile Include="Models\Responses\AliceResponse.cs" />
+    <Compile Include="Models\Buttons\Button.cs" />
+    <Compile Include="Models\Requests\AliceRequest.cs" />
+    <Compile Include="Models\Requests\Request.cs" />
+    <Compile Include="Models\Responses\Response.cs" />
+    <Compile Include="Models\Builders\Responses\ResponseBuilder.cs" />
+    <Compile Include="Models\Common\Session.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

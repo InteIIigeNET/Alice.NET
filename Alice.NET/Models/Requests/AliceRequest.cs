@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using Alice.Models.Common;
+using Newtonsoft.Json;
 
-namespace Alice.Models
+namespace Alice.Models.Requests
 {
 	/// <summary>
 	/// Запрос от Алисы
@@ -29,6 +30,6 @@ namespace Alice.Models
 		/// Версия протокола
 		/// </summary>
 		[JsonProperty("version")]
-		public string Version { get; set; } = AliceServiceConstants.ProtocolVersion;
+		public string Version { get; set; }
 	}
 }
