@@ -16,6 +16,4 @@ namespace Alice.Images
 		[JsonProperty("origUrl")]
 		public string OriginalUrl { get; set; }
 	}
-
-
 }
