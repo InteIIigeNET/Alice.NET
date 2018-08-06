@@ -8,19 +8,24 @@ namespace Alice.Images
 {
 	public class ImagesApi
 	{
+		private readonly string _token;
 		private readonly string _apiUrl;
 		private readonly IJsonSerializer _jsonSerializer = new JsonSerializer.JsonSerializer(); //чёт не нравится такая интеграция зависимостей
-		private static readonly HttpClient Client = new HttpClient();
+
+		private static readonly HttpClient Client = new HttpClient()
+		{
+			DefaultRequestHeaders = {{"Host", "https://dialogs.yandex.net"}}
+		};
 
 		public ImagesApi(string skillId, string token)
 		{
+			_token = token;
 			_apiUrl = $"https://dialogs.yandex.net/api/v1/skills/{skillId}/images";
-			Client.DefaultRequestHeaders.Add("Host", "https://dialogs.yandex.net");
-			Client.DefaultRequestHeaders.Add("Authorization", $"OAuth {token}");
 		}
 
 		private async Task<UploadedImage> TryUploadImage(HttpContent content)
 		{
+			content.Headers.Add("Authorization", $"OAuth {_token}");
 			var response = await Client.PostAsync(_apiUrl, content);
 			var responseString = await response.Content.ReadAsStringAsync();
 			var result = _jsonSerializer.Deserialize<UploadedImage>(responseString);

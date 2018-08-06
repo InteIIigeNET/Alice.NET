@@ -4,7 +4,7 @@ namespace Alice.Models.Builders.Buttons
 {
 	public class TipButtonBuilder : ButtonBuilder<TipButton>
 	{
-		public ButtonBuilder<TipButton> Hide()
+		public TipButtonBuilder Hide()
 		{
 			Button.Hide = true;
 			return this;

@@ -5,7 +5,7 @@ namespace Alice.Models.Builders.Cards
 {
 	public class BigImageCardBuilder : CardBuilder<BigImageCard>
 	{
-		public CardBuilder<BigImageCard> Create(string title, string imageId)
+		public BigImageCardBuilder Create(string title, string imageId)
 		{
 			Card = new BigImageCard()
 			{
@@ -15,13 +15,13 @@ namespace Alice.Models.Builders.Cards
 			return this;
 		}
 
-		public CardBuilder<BigImageCard> WithDescription(string description)
+		public BigImageCardBuilder WithDescription(string description)
 		{
 			Card.Description = description;
 			return this;
 		}
 
-		public CardBuilder<BigImageCard> WithButton(Button button)
+		public BigImageCardBuilder WithButton(Button button)
 		{
 			Card.Button = button;
 			return this;
