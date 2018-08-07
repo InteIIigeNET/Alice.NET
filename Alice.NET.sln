@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alice.NET", "Alice.NET\Alice.NET.csproj", "{473C5D40-665E-4CEF-8656-D5DDE1BB3CC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alice.NET.Ioc", "Alice.NET.Ioc\Alice.NET.Ioc.csproj", "{977F6CE5-8B91-4796-A0F0-9BA2C42847A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alice.NET.Attributes", "Alice.NET.Attributes\Alice.NET.Attributes.csproj", "{47772E4D-8707-45D5-A49D-0402ECAF6064}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{473C5D40-665E-4CEF-8656-D5DDE1BB3CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{473C5D40-665E-4CEF-8656-D5DDE1BB3CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{473C5D40-665E-4CEF-8656-D5DDE1BB3CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{977F6CE5-8B91-4796-A0F0-9BA2C42847A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{977F6CE5-8B91-4796-A0F0-9BA2C42847A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{977F6CE5-8B91-4796-A0F0-9BA2C42847A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{977F6CE5-8B91-4796-A0F0-9BA2C42847A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47772E4D-8707-45D5-A49D-0402ECAF6064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47772E4D-8707-45D5-A49D-0402ECAF6064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47772E4D-8707-45D5-A49D-0402ECAF6064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47772E4D-8707-45D5-A49D-0402ECAF6064}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
