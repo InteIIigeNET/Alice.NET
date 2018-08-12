@@ -2,9 +2,9 @@
 
 namespace Alice.Ioc
 {
-    public static class IocRegister
+    internal static class IocRegister
     {
-        public static void Init(Container container)
+        internal static void Init(Container container)
         {
             //Register instances
         }
