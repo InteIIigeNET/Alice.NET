@@ -33,6 +33,9 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleInjector, Version=4.3.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.3.0\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,8 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AliceArgs.cs" />
+    <Compile Include="AliceResponse.cs" />
     <Compile Include="AliceServiceConstants.cs" />
     <Compile Include="Extensions\AliceExtensions.cs" />
+    <Compile Include="HandleRegister.cs" />
+    <Compile Include="IAliceHandler.cs" />
+    <Compile Include="IAliceListener.cs" />
+    <Compile Include="Ioc\IocRegister.cs" />
     <Compile Include="Models\Meta.cs" />
     <Compile Include="Models\AliceResponse.cs" />
     <Compile Include="Models\Button.cs" />
