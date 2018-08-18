@@ -28,14 +28,12 @@ namespace Alice.Models.Builders.Responses
 		public IResponseBuilder WithCard<TCard>(TCard card)
 			where TCard : Card
 		{
-			card.Type = card.Type ?? CardType.BigImage;
 			_response.Card = card;
 			return this;
 		}
 
 		public IResponseBuilder WithBigImageCard(ImageCard card)
 		{
-			card.Type = CardType.BigImage;
 			return WithCard(card);
 		}
 

@@ -12,10 +12,7 @@ namespace Alice.Models.Builders.Cards
 
 		public IFooterBuilder Create(string text)
 		{
-			_footer = new Footer()
-			{
-				Text = text
-			};
+			_footer = new Footer() {Text = text};
 			return this;
 		}
 

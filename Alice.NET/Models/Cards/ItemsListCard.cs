@@ -16,11 +16,23 @@ namespace Alice.Models.Cards
 		/// </summary>
 		[JsonProperty("header")]
 		public Header Header { get; set; }
+
 		/// <summary>
 		/// Набор изображений для галереи — не меньше 1, не больше 5
 		/// </summary>
 		[JsonProperty("items")]
-		public ImageCard[] CardItems { get; set; }
+		public ImageCard[] CardItems
+		{
+			get => _cardItems;
+			set {
+				foreach (var item in value)
+				{
+					item.Type = null;
+				}
+				_cardItems = value;
+			}
+		}
+		private ImageCard[] _cardItems;
 		/// <summary>
 		/// Кнопки под галереей изображений
 		/// </summary>
