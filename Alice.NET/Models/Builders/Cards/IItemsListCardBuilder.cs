@@ -3,7 +3,7 @@ using Alice.Models.Cards;
 
 namespace Alice.Models.Builders.Cards
 {
-	public interface IItemsListCardBuilder
+	public interface IItemsListCardBuilder : IModelBuilder<ItemsListCard>
 	{
 		ItemsListCardBuilder Create(params ImageCard[] cardItems);
 		ItemsListCardBuilder WithFooter(Footer footer);
