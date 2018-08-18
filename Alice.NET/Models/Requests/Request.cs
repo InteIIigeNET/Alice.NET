@@ -1,24 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using Alice.Models.Enums;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Alice.Models.Requests
 {
-	/// <summary>
-	/// Тип ввода
-	/// </summary>
-	public enum RequestType
-	{
-		/// <summary>
-		/// Голосовой ввод
-		/// </summary>
-		SimpleUtterance,
-
-		/// <summary>
-		/// Нажатие кнопки
-		/// </summary>
-		ButtonPressed
-	}
-
 	/// <summary>
 	/// Данные, полученные от пользователя
 	/// </summary>

@@ -2,8 +2,8 @@
 
 namespace Alice.Models.Builders.Cards
 {
-	public abstract class CardBuilder<TCard> 
-		where TCard : Card, new()
+	public abstract class CardBuilder<TCard> : IModelBuilder<TCard>
+		where TCard : Card
 	{
 		protected TCard Card;
 

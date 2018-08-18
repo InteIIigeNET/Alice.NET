@@ -1,25 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using Alice.Models.Enums;
+using Newtonsoft.Json;
 
 namespace Alice.Models.Cards
 {
-	/// <summary>
-	/// Тип карточки
-	/// </summary>
-	public enum CardType
-	{
-		/// <summary>
-		/// Одно изображение
-		/// </summary>
-		BigImage,
-		/// <summary>
-		/// Галерея изображений
-		/// </summary>
-		ItemsList
-	}
-
 	public abstract class Card
 	{
-		protected Card(CardType type)
+		protected Card(CardType? type)
 		{
 			Type = type;
 		}
@@ -28,8 +14,9 @@ namespace Alice.Models.Cards
 		/// Тип карточки. Поддерживаемые значения:
 		/// BigImage — одно изображение.
 		///	ItemsList — галерея изображений (от 1 до 5).
+		/// Null — используется в качестве изображения внутри ItemsList
 		/// </summary>
 		[JsonProperty("type")]
-		public CardType Type { get; set; }
+		public CardType? Type { get; set; }
 	}
 }

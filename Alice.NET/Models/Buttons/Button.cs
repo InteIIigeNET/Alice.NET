@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Alice.Models.Buttons
 {
-	public abstract class Button
+	public class Button
 	{
 		/// <summary>
 		/// Текст кнопки, обязателен для каждой кнопки. Максимум 64 символа.
@@ -25,6 +25,6 @@ namespace Alice.Models.Buttons
 		/// если данная кнопка будет нажата. Максимум 4096 байт
 		/// </summary>		
 		[JsonProperty("payload")]
-		public JObject Payload { get; set; }
+		public JObject Payload { get; set; } = JObject.Parse("");
 	}
 }   

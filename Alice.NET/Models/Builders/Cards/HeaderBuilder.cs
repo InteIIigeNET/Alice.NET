@@ -2,11 +2,11 @@
 
 namespace Alice.Models.Builders.Cards
 {
-	public class HeaderBuilder
+	public class HeaderBuilder : IHeaderBuilder
 	{
 		private Header _header;
 
-		public HeaderBuilder Create(string text)
+		public IHeaderBuilder Create(string text)
 		{
 			_header = new Header()
 			{

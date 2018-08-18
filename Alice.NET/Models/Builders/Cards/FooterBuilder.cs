@@ -1,13 +1,16 @@
-﻿using Alice.Models.Buttons;
+﻿using System;
+using Alice.Models.Builders.Buttons;
+using Alice.Models.Buttons;
 using Alice.Models.Cards;
 
 namespace Alice.Models.Builders.Cards
 {
-	public class FooterBuilder
+	public class FooterBuilder : IFooterBuilder
 	{
 		private Footer _footer;
+		private readonly IButtonBuilder<Button> _defaultButtonBuilder;
 
-		public FooterBuilder Create(string text)
+		public IFooterBuilder Create(string text)
 		{
 			_footer = new Footer()
 			{
@@ -16,9 +19,17 @@ namespace Alice.Models.Builders.Cards
 			return this;
 		}
 
-		public FooterBuilder WithButton(Button button)
+		public IFooterBuilder WithButton(Button button)
 		{
 			_footer.Button = button;
+			return this;
+		}
+
+		public IFooterBuilder WithButton(Func<IButtonBuilder<Button>, Button> buttonBuildFunc, 
+										 IButtonBuilder<Button> builder = null)
+		{
+			builder = builder ?? _defaultButtonBuilder;
+			_footer.Button = buttonBuildFunc(builder);
 			return this;
 		}
 

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Alice.Models.Enums;
+using Newtonsoft.Json;
 
 namespace Alice.Models.Cards
 {
@@ -19,7 +20,7 @@ namespace Alice.Models.Cards
 		/// Набор изображений для галереи — не меньше 1, не больше 5
 		/// </summary>
 		[JsonProperty("items")]
-		public CardItem[] CardItems { get; set; }
+		public ImageCard[] CardItems { get; set; }
 		/// <summary>
 		/// Кнопки под галереей изображений
 		/// </summary>

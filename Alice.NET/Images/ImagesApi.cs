@@ -6,7 +6,7 @@ using Alice.JsonSerializer;
 
 namespace Alice.Images
 {
-	public class ImagesApi
+	public class ImagesApi : IImagesApi
 	{
 		private readonly string _token;
 		private readonly string _apiUrl;
@@ -14,13 +14,14 @@ namespace Alice.Images
 
 		private static readonly HttpClient Client = new HttpClient()
 		{
-			DefaultRequestHeaders = {{"Host", "https://dialogs.yandex.net"}}
+			DefaultRequestHeaders = {{"Host", AliceServiceConstants.ApiHost } }
 		};
 
 		public ImagesApi(string skillId, string token)
 		{
 			_token = token;
-			_apiUrl = $"https://dialogs.yandex.net/api/v1/skills/{skillId}/images";
+			_apiUrl = $"{AliceServiceConstants.ApiHost}/api/" +
+			          $"{AliceServiceConstants.ApiVersion}/skills/{skillId}/images"; //куда-нибудь вынесем позже
 		}
 
 		private async Task<UploadedImage> TryUploadImage(HttpContent content)
@@ -53,7 +54,7 @@ namespace Alice.Images
 			return await TryUploadImage(content);
 		}
 
-		public async Task<UploadedImage[]> TryGetUploadedImages()
+		public async Task<UploadedImage[]> TryGetUploadedImagesAsync()
 		{
 			var response = await Client.GetAsync(_apiUrl);
 			var responseString = await response.Content.ReadAsStringAsync();

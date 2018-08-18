@@ -2,9 +2,9 @@ using Alice.Models.Buttons;
 
 namespace Alice.Models.Builders.Buttons
 {
-	public class TipButtonBuilder : ButtonBuilder<TipButton>
+	public class TipButtonBuilder : ButtonBuilder<TipButton>, ITipButtonBuilder
 	{
-		public TipButtonBuilder Hide()
+		public ITipButtonBuilder Hide()
 		{
 			Button.Hide = true;
 			return this;

@@ -1,29 +1,19 @@
-using Alice.Models.Buttons;
-using Alice.Models.Cards;
+﻿using Alice.Models.Cards;
 
 namespace Alice.Models.Builders.Cards
 {
-	public class BigImageCardBuilder : CardBuilder<BigImageCard>
+	public interface IBigImageCardBuilder : IImageCardBuilder
+	{ }
+
+	public class BigImageCardBuilder : ImageCardBuilder, IBigImageCardBuilder
 	{
-		public BigImageCardBuilder Create(string title, string imageId)
+		public override IImageCardBuilder Create(string title, string imageId)
 		{
-			Card = new BigImageCard()
+			Card = new ImageCard(isBigImageCard: true)
 			{
 				Title = title,
 				ImageId = imageId
 			};
-			return this;
-		}
-
-		public BigImageCardBuilder WithDescription(string description)
-		{
-			Card.Description = description;
-			return this;
-		}
-
-		public BigImageCardBuilder WithButton(Button button)
-		{
-			Card.Button = button;
 			return this;
 		}
 	}

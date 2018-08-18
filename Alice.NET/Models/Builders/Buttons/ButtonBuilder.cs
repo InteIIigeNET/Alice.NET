@@ -2,18 +2,18 @@
 
 namespace Alice.Models.Builders.Buttons
 {
-	public class ButtonBuilder<TButton>
+	public class ButtonBuilder<TButton> : IButtonBuilder<TButton>
 		where TButton : Button, new()
 	{
 		protected TButton Button;
 
-		public ButtonBuilder<TButton> Create(string title)
+		public IButtonBuilder<TButton> Create(string title)
 		{
 			Button = new TButton() {Title = title};
 			return this;
 		}
 
-		public ButtonBuilder<TButton> WithUrl(string url)
+		public IButtonBuilder<TButton> WithUrl(string url)
 		{
 			Button.Url = url;
 			return this;
