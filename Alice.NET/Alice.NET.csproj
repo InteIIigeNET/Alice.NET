@@ -63,6 +63,7 @@
     <Compile Include="Models\Builders\Cards\IItemsListCardBuilder.cs" />
     <Compile Include="Models\Builders\Cards\ItemsListCardBuilder.cs" />
     <Compile Include="Models\Builders\Common\AliceResponseBuilder.cs" />
+    <Compile Include="Models\Builders\Common\IAliceResponseBuilder.cs" />
     <Compile Include="Models\Builders\IModelBuilder.cs" />
     <Compile Include="Models\Builders\Responses\IResponseBuilder.cs" />
     <Compile Include="Models\Cards\ImageCard.cs" />

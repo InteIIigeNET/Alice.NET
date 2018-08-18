@@ -5,17 +5,17 @@ using Alice.Models.Responses;
 
 namespace Alice.Models.Builders.Common
 {
-	public class AliceResponseBuilder : BaseBuilder<AliceResponse>
+	public class AliceResponseBuilder : BaseBuilder<AliceResponse>, IAliceResponseBuilder
 	{
 		private readonly IResponseBuilder _defaultResponseBuilder;
 
-		public AliceResponseBuilder Create(Response response)
+		public IAliceResponseBuilder Create(Response response)
 		{
 			BuildingModel = new AliceResponse {Response = response};
 			return this;
 		}
 
-		public AliceResponseBuilder Create(Func<IResponseBuilder, Response> responseBuildFunc,
+		public IAliceResponseBuilder Create(Func<IResponseBuilder, Response> responseBuildFunc,
 										   IResponseBuilder builder = null)
 		{
 			builder = builder ?? _defaultResponseBuilder;
@@ -23,13 +23,13 @@ namespace Alice.Models.Builders.Common
 			return this;
 		}
 
-		public AliceResponseBuilder ForSession(Session session)
+		public IAliceResponseBuilder ForSession(Session session)
 		{
 			BuildingModel.Session = session;
 			return this;
 		}
 
-		public AliceResponseBuilder UseProtocolVersion(string version)
+		public IAliceResponseBuilder UseProtocolVersion(string version)
 		{
 			BuildingModel.Version = version;
 			return this;
