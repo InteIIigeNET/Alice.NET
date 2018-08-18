@@ -9,7 +9,7 @@ namespace Alice.Models.Builders.Cards
 	{
 		IFooterBuilder Create(string text);
 		IFooterBuilder WithButton(Button button);
-		IFooterBuilder WithButton(Func<IButtonBuilder<Button>, Button> buttonBuilFunc,
+		IFooterBuilder WithButton(Func<IButtonBuilder<Button>, Button> buttonBuildFunc,
 								  IButtonBuilder<Button> builder = null);
 	}
 }
