@@ -5,12 +5,12 @@ using Alice.Models.Cards;
 
 namespace Alice.Models.Builders.Cards
 {
-	public class ImageCardBuilder : CardBuilder<ImageCard>, IImageCardBuilder
+	public class ImageCardBuilder : BaseBuilder<ImageCard>, IImageCardBuilder
 	{
 		private readonly IButtonBuilder<Button> _defaultButtonBuilder; //нужно инжектить
 		public virtual IImageCardBuilder Create(string title, string imageId)
 		{
-			Card = new ImageCard(isBigImageCard: false)
+			BuildingModel = new ImageCard(isBigImageCard: false)
 			{
 				Title = title,
 				ImageId = imageId
@@ -20,13 +20,13 @@ namespace Alice.Models.Builders.Cards
 
 		public IImageCardBuilder WithDescription(string description)
 		{
-			Card.Description = description;
+			BuildingModel.Description = description;
 			return this;
 		}
 
 		public IImageCardBuilder WithButton(Button button)
 		{
-			Card.Button = button;
+			BuildingModel.Button = button;
 			return this;
 		}
 
@@ -34,7 +34,7 @@ namespace Alice.Models.Builders.Cards
 			IButtonBuilder<Button> builder = null)
 		{
 			builder = builder ?? _defaultButtonBuilder;
-			Card.Button = buttonBuildFunc(builder);
+			BuildingModel.Button = buttonBuildFunc(builder);
 			return this;
 		}
 	}

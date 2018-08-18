@@ -7,28 +7,27 @@ using Alice.Models.Responses;
 
 namespace Alice.Models.Builders.Responses
 {
-	public class ResponseBuilder : IResponseBuilder
+	public class ResponseBuilder : BaseBuilder<Response>, IResponseBuilder
 	{
-		private Response _response;
 		private readonly IBigImageCardBuilder _defaultImageCardBuilder;
 		private readonly IItemsListCardBuilder _defaultItemsListCardBuilder;
 
 		public IResponseBuilder Create(string text) //возможно, тут придётся добавить bool useDefaultTts
 		{
-			_response = new Response {Text = text};
+			BuildingModel = new Response {Text = text};
 			return this;
 		}
 
 		public IResponseBuilder WithTts(string tts) 
 		{
-			_response.Tts = tts;
+			BuildingModel.Tts = tts;
 			return this;
 		}
 
 		public IResponseBuilder WithCard<TCard>(TCard card)
 			where TCard : Card
 		{
-			_response.Card = card;
+			BuildingModel.Card = card;
 			return this;
 		}
 
@@ -41,7 +40,7 @@ namespace Alice.Models.Builders.Responses
 												 IBigImageCardBuilder builder = null)
 		{
 			builder = builder ?? _defaultImageCardBuilder;
-			_response.Card = cardBuildFunc(builder);
+			BuildingModel.Card = cardBuildFunc(builder);
 			return this;
 		}
 
@@ -54,25 +53,20 @@ namespace Alice.Models.Builders.Responses
 			IItemsListCardBuilder builder)
 		{
 			builder = builder ?? _defaultItemsListCardBuilder;
-			_response.Card = cardBuildFunc(builder);
+			BuildingModel.Card = cardBuildFunc(builder);
 			return this;
 		}
 
 		public IResponseBuilder WithButtons(params TipButton[] buttons)
 		{
-			_response.Buttons = buttons;
+			BuildingModel.Buttons = buttons;
 			return this;
 		}
 
 		public IResponseBuilder EndSession()
 		{
-			_response.EndSession = true;
+			BuildingModel.EndSession = true;
 			return this;
-		}
-
-		public Response Build()
-		{
-			return _response;
 		}
 	}
 }

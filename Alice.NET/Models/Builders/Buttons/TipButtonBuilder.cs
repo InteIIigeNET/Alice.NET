@@ -6,7 +6,7 @@ namespace Alice.Models.Builders.Buttons
 	{
 		public ITipButtonBuilder Hide()
 		{
-			Button.Hide = true;
+			BuildingModel.Hide = true;
 			return this;
 		}
 	}

@@ -9,7 +9,7 @@ namespace Alice.Models.Builders.Cards
 	{
 		public override IImageCardBuilder Create(string title, string imageId)
 		{
-			Card = new ImageCard(isBigImageCard: true)
+			BuildingModel = new ImageCard(isBigImageCard: true)
 			{
 				Title = title,
 				ImageId = imageId

@@ -3,7 +3,7 @@ using Alice.Models.Cards;
 
 namespace Alice.Models.Builders.Cards
 {
-	public class ItemsListCardBuilder : CardBuilder<ItemsListCard>, IItemsListCardBuilder
+	public class ItemsListCardBuilder : BaseBuilder<ItemsListCard>, IItemsListCardBuilder
 	{
 		private readonly IHeaderBuilder _delaultHeaderBuilder;
 		private readonly IFooterBuilder _delaultFooterBuilder;
@@ -14,13 +14,13 @@ namespace Alice.Models.Builders.Cards
 			{
 				image.Type = null;
 			}
-			Card = new ItemsListCard() {CardItems = cardItems};
+			BuildingModel = new ItemsListCard() {CardItems = cardItems};
 			return this;
 		}
 
 		public ItemsListCardBuilder WithHeader(Header header)
 		{
-			Card.Header = header;
+			BuildingModel.Header = header;
 			return this;
 		}
 
@@ -28,13 +28,13 @@ namespace Alice.Models.Builders.Cards
 											   IHeaderBuilder builder = null)
 		{
 			builder = builder ?? _delaultHeaderBuilder;
-			Card.Header = headerBuildFunc(builder);
+			BuildingModel.Header = headerBuildFunc(builder);
 			return this;
 		}
 
 		public ItemsListCardBuilder WithFooter(Footer footer)
 		{
-			Card.Footer = footer;
+			BuildingModel.Footer = footer;
 			return this;
 		}
 
@@ -42,7 +42,7 @@ namespace Alice.Models.Builders.Cards
 											   IFooterBuilder builder = null)
 		{
 			builder = builder ?? _delaultFooterBuilder;
-			Card.Footer = footerBuildFunc(builder);
+			BuildingModel.Footer = footerBuildFunc(builder);
 			return this;
 		}
 	}

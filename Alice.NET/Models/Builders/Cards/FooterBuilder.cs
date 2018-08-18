@@ -5,20 +5,19 @@ using Alice.Models.Cards;
 
 namespace Alice.Models.Builders.Cards
 {
-	public class FooterBuilder : IFooterBuilder
+	public class FooterBuilder : BaseBuilder<Footer>, IFooterBuilder
 	{
-		private Footer _footer;
 		private readonly IButtonBuilder<Button> _defaultButtonBuilder;
 
 		public IFooterBuilder Create(string text)
 		{
-			_footer = new Footer() {Text = text};
+			BuildingModel = new Footer() {Text = text};
 			return this;
 		}
 
 		public IFooterBuilder WithButton(Button button)
 		{
-			_footer.Button = button;
+			BuildingModel.Button = button;
 			return this;
 		}
 
@@ -26,13 +25,8 @@ namespace Alice.Models.Builders.Cards
 										 IButtonBuilder<Button> builder = null)
 		{
 			builder = builder ?? _defaultButtonBuilder;
-			_footer.Button = buttonBuildFunc(builder);
+			BuildingModel.Button = buttonBuildFunc(builder);
 			return this;
-		}
-
-		public Footer Build()
-		{
-			return _footer;
 		}
 	}
 }
